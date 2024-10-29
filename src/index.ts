@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import useRoute from './routes/userRoute'
 import { seedInitialProduct } from './services/productServices';
 import productRoute from './routes/productRoute';
+import carteRoute from './routes/cartRoute'
 
 const app = express();
 
@@ -19,6 +20,7 @@ mongoose.connect("mongodb://localhost:27017/ecommers")
 seedInitialProduct()
 
 app.use('/user',useRoute)
-app.use('/products',productRoute)
+app.use('/product',productRoute)
+app.use('/cart',carteRoute)
 
 app.listen(port,()=>console.log('server is runnig at http//:localhost:4000'))
